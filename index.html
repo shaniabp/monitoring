@@ -29,31 +29,39 @@
             </div>
         </section>
 
-        <!-- Filter Periode -->
-        <div class="filter-container">
-            <label for="bulan">📅 Pilih Bulan:</label>
-            <select id="bulan"></select>
+        <!-- Filter Periode Report -->
+<div class="filter-container">
+    <label for="tanggal">📆 Pilih Tanggal:</label>
+    <select id="tanggal"></select>
 
-            <label for="tahun">📅 Pilih Tahun:</label>
-            <select id="tahun"></select>
+    <label for="bulan">📅 Pilih Bulan:</label>
+    <select id="bulan"></select>
 
-            <button onclick="loadReport()">🔍 Tampilkan</button>
-        </div>
+    <label for="tahun">📅 Pilih Tahun:</label>
+    <select id="tahun"></select>
 
-        <h2 class="table-title">📊 Laporan Data</h2>
-        <section class="table-container">
-            <table id="reportTable">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Waktu</th>
-                        <th>Suhu (°C)</th>
-                        <th>pH</th>
-                        <th>TDS (ppm)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Data akan diisi melalui JavaScript -->
+    <button onclick="loadReport()">🔍 Tampilkan</button>
+</div>
+
+<h2 class="table-title">📊 Laporan Data</h2>
+<section class="table-container">
+    <table id="reportTable">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Waktu</th>
+                <th>Suhu (°C)</th>
+                <th>pH</th>
+                <th>TDS (ppm)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data akan diisi melalui JavaScript -->
+        </tbody>
+    </table>
+</section>
+
+
                 </tbody>
             </table>
         </section>
