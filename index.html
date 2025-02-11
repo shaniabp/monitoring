@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Kolam Ikan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🌊 Monitoring Kolam Ikan</h1>
+    </header>
+
+    <main>
+        <!-- Sensor Data -->
+        <section class="sensor-container">
+            <div class="sensor-box suhu">
+                <h2>🔥 Suhu</h2>
+                <p><span id="suhu">--</span> °C</p>
+            </div>
+            <div class="sensor-box ph">
+                <h2>🌿 pH</h2>
+                <p><span id="ph">--</span></p>
+            </div>
+            <div class="sensor-box tds">
+                <h2>💧 TDS</h2>
+                <p><span id="tds">--</span> ppm</p>
+            </div>
+        </section>
+
+        <!-- Filter Periode -->
+        <div class="filter-container">
+            <label for="bulan">📅 Pilih Bulan:</label>
+            <select id="bulan"></select>
+
+            <label for="tahun">📅 Pilih Tahun:</label>
+            <select id="tahun"></select>
+
+            <button onclick="loadReport()">🔍 Tampilkan</button>
+        </div>
+
+        <h2 class="table-title">📊 Laporan Data</h2>
+        <section class="table-container">
+            <table id="reportTable">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Waktu</th>
+                        <th>Suhu (°C)</th>
+                        <th>pH</th>
+                        <th>TDS (ppm)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data akan diisi melalui JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
