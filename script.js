@@ -4,6 +4,43 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(fetchRealtimeData, 5000); // Update data setiap 5 detik
 });
 
+
+function fetchRealtimeData() {
+    fetch("get_realtime_data.php")
+        .then(response => response.json())
+        .then(data => {
+            // Pastikan elemen HTML tersedia sebelum mengupdate datanya
+            if (document.getElementById("suhu") && document.getElementById("ph") && document.getElementById("tds")) {
+                document.getElementById("suhu").textContent = data.suhu || "--";
+                document.getElementById("ph").textContent = data.ph || "--";
+                document.getElementById("tds").textContent = data.tds || "--";
+
+                // Ubah warna berdasarkan nilai
+                updateBoxColor(".suhu", data.suhu, 32, 28); // Jika suhu >32°C merah, <28°C biru
+                updateBoxColor(".ph", data.ph, 8, 6.5); // Jika pH >8 hijau tua, <6.5 kuning
+                updateBoxColor(".tds", data.tds, 500, 200); // Jika TDS >500ppm biru tua, <200ppm abu-abu
+            } else {
+                console.error("Elemen data real-time tidak ditemukan di HTML.");
+            }
+        })
+        .catch(error => console.error("Error fetching real-time data:", error));
+}
+
+// Fungsi untuk mengubah warna sensor box berdasarkan data
+function updateBoxColor(selector, value, high, low) {
+    let box = document.querySelector(selector);
+    if (box) {
+        if (value > high) {
+            box.style.backgroundColor = "red";
+        } else if (value < low) {
+            box.style.backgroundColor = "blue";
+        } else {
+            box.style.backgroundColor = "green";
+        }
+    }
+}
+
+
 // Fungsi untuk mengisi dropdown tanggal, bulan, dan tahun
 function populateDateFilters() {
     let tanggalSelect = document.getElementById("tanggal");
